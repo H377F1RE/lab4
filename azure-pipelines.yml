@@ -28,6 +28,11 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: VSTest@2
+  inputs:
+    testSelector: 'testAssemblies'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: ''
