@@ -28,10 +28,9 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
+- task: VSTest@1
   inputs:
-    testSelector: 'testAssemblies'
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+    testAssembly: '**\*test*.dll;-:**\obj\**'
 
 - task: PublishBuildArtifacts@1
   inputs:
